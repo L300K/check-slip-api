@@ -15,6 +15,10 @@ def sort_json(data_text):
 
 
 def extract_transaction_data(html_content):
+    if "Transaction refunded" in html_content or "Slip not found" in html_content:
+        return {
+            "message": "Slip not found."
+        }
     soup = BeautifulSoup(html_content, 'html.parser')
 
     output_data = {

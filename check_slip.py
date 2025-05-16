@@ -46,6 +46,7 @@ class checkSlip:
             self.captcha_content = gemini_generate(prompt=os.getenv("CAPTCHA_PROMPT"), file=self.captcha_path,
                                                    captcha=True)
             print('Captcha resolved successfully.')
+            os.remove(self.captcha_path)
 
     def get_payload(self, slip_path: str = None):
         try:

@@ -1,10 +1,13 @@
-from google import genai
-from PIL import Image
 import os
 import time
+
+from PIL import Image
+from google import genai
+
 from utils.util import sort_json
 
-def gemini_generate(prompt: str = None, file=None, captcha=None, max_retries=5, backoff_factor=2):
+
+def gemini_generate(prompt: str = None, file=None, captcha=None, max_retries=6, backoff_factor=2):
     client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
     model = 'gemini-2.0-flash'
     retries = 0
