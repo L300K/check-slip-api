@@ -128,5 +128,8 @@ class checkSlip:
             retries += 1
 
         print(f"Max retries ({max_retries}) reached.")
+        self.slip_data = {
+            "message": "Can't retrieve slip data. Please try again later."
+        }
         return self.slip_data
 
